@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import uuid from 'uuid';
+import { connect } from 'react-redux';
 import { addQuote } from '../actions/quotes';
 
 class QuoteForm extends Component {
 
+  //set up a controlled form with internal state
   state = {
     content: '',
     author: ''
   }
 
+    // Handle Updating Component State
   handleOnChange = event => {
     const { value, name } = event.target;
     this.setState({
@@ -17,8 +19,10 @@ class QuoteForm extends Component {
     });
   }
 
-
-
+    // Handle Form Submit event default
+    // Create quote object from state
+    // Pass quote object to action creator
+    // Update component state to return to default state
   handleOnSubmit = event => {
     event.preventDefault();
     const quote = {...this.state, id: uuid() };
@@ -75,5 +79,5 @@ class QuoteForm extends Component {
   }
 }
 
-//add arguments to connect as needed
+
 export default connect(null, { addQuote })(QuoteForm);
