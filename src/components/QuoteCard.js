@@ -1,5 +1,4 @@
 import React from 'react';
-import { downvoteQuote } from '../actions/quotes';
 
 
 
